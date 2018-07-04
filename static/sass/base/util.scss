@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+/*
+* @Author: Jason
+* @Date:   2018-03-02
+* @Last Modified by:   Jason
+* @参考地址: http://www.w3cplus.com/mobile/mobile-terminal-refactoring-reset-style.html
+*/
+
+/**
+ * 隐藏元素
+ */
+
+.hidden,
+[hidden] {
+    display: none !important;
+}
+
+
+/**
+ * 弹性图片
+ */
+
+.flex-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/**
+ * 清除浮动
+ */
+
+.clear {
+    clear: both;
+}
+
+
+/**
+ * 解決高度塌陷問題
+ */
+
+.clearfix:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+/**
+ * 单行文本超过宽度显示为三个点
+ */
+
+.text-nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.noselect {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

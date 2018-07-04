@@ -1,0 +1,25 @@
+@charset "utf-8"; //fix invalid us-ascii character
+
+$bg-imge: '//cbshowhot.cdn.changbaimg.com/-/6d23434d36b11b29/wuyuetian.jpg'; //主视觉头图
+$bg-color: #f2f7f9; // 默认背景颜色
+$font-color: #301e31; // 默认字体颜色
+
+$rule-bg-color: #1393f2; // 规则按钮背景颜色
+$rule-color: #fff; // 规则按钮颜色
+
+$tab-bg-color-active: #1393f2; //tab高亮背景颜色
+$tab-font-color-active: #fff; // tab高亮字体颜色
+$tab-bg-color: #f4f8fb; // tab默认背景颜色
+$tab-font-color: #1393f2; // tab默认字体颜色
+$tab-border-color: #42a8f4; // tab默认边框颜色
+
+$avatar-first-border: 0.0625rem solid #ffd52d; // No.1头像border
+$avatar-second-border: 0.0625rem solid #c7d6da; // No.2头像border
+$avatar-third-border: 0.0625rem solid #ffa42d; // No.3头像border
+
+$num-color: #301e31;  // li-num
+$livestatus-color: #42a8f4; //正在直播字体颜色wf
+$songname-color: #301e31; //歌曲名称字体颜色
+$name-color: #301e31;
+
+$even-li-color: #e3f4fb;

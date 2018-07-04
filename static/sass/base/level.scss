@@ -1,0 +1,113 @@
+@charset "utf-8"; // charset只能用双引号设置，下面的却不用
+$l1: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAYCAMAAACRH25gAAAA51BMVEUAAACHXlGHXlKIYFP/thv//1b/vyP/5zz/////3z//3T3/viL/30D/4ED/1TX/4EH/4UX/1Tn/4EGYbk3/vB/8uyH/vSH/3z7/3j79yCv/xCj/30D/30H/30H9xSb/4EH/xCr/30H/2Dj/4lWHX1L/shb/3j//30D/sxf/3D3/1TaJYlL/zjD/yCr+yCr/uh7/thn/sxntsS3/wyb/vCCHYFP92j3/0TPpry7/yiz/uByZclCOZlC6lk6ke02rg0vNqkrJmD/bpjj/zzKVbE+viEzauEnlw0bqyUX10T/cqzv80jb2tSURvKAWAAAAJHRSTlMA8a0m/APUDgH05tmQa0w6JiH38+zn3dPHtbKxq5mFdWVaVgmmW22VAAABOUlEQVQ4y53U13LCMBAFUGNMDTW9V3ZXMraxY9M7pCf//z2R8AN+1HI1I+nlzGhmNdfKpPmYt3Mdw+TsvJXN7VlKTXlWt0ksOpzYGVxDGLFwbm9LFYLwjaX3+IEIYHMYLlQ1droH4SckBIA1D7+0GvXazcUxIgFEv18fq/ly2jXDV4GLhOkCMUREInTHP0a4cA4i8YeSlAKPUA6DRMBr1+zZhSPQ6cXbgb+Ne/qurRnWOuVBoCjDamyViwqEnpxMpBdq22eMSunIlxgA+Cj9aNRnzrmK6EYChIv0zf0kJURKQCVBohkTN4k82MVDXDBxnWSY4nBAcya+w1hBJ1JbTCsmvnQBRLF9MhIA7ievDMqVHpw2LMvuLP/EZNBn1VBr7NzrM68KcO2Mp6wCfL4uWbvo6p1t3k2r9x8kFbaZQ4W/JQAAAABJRU5ErkJggg==);
+$l2: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAYCAMAAACRH25gAAAAz1BMVEUAAABnZK1oZK1oZK/GoWLytjL+uB1nY67/ux//wSX/4EHFsW//vSDOuGr/3j//3j7/wSX9xCX/3kD/wyj/0zT/4ED/xyn/3EH/yCv/xiv/ySr/4UH/40JmZqz/4EX/30r//1VoZK7/30D/shb/tBr/3T3/wSP/zzD/uR3/tRqFfZyBd5z/1DX/tBd+dJ2OhJeLgJell4eunoCskXnHsm/exVzhr0f/2Dr/yiz7uCP/viH/ux9saKx2cKZ7daK6qHjSumfXuFziyVrUqVX63ETMlj/aAAAAIXRSTlMA8K0m/v368/DMPfnl3c7Ht7ayq6l2bmFdTUgzLighGAaJFOFtAAAA/klEQVQ4y53UZ2/CMBCAYRISCnTvPXznOKthtYxCW+b//02Y4ADOp7PfL5EiPbpYiq+iVT09bjNajlstWScB6CdUrmuXsRkA9Ija1bDDWBdkUxo+0rB8kcCmLk2X8V+OV6kV/oe8uRXubHHYscE9hZc2uK+wb4HbsG30Y45/FwqL2Bx/gyo2xh87+4m0z755LmzzDIoE+iTcGF7dv7y/NW/PAfaD0SPhuyiAUsEEs5R25vqkrAXigNHwQxYNtbnS8hb1377AeHRw3kjaL/qVbCBGYZBPDceImHkmy+Cao/RCjOWzmEtfQ48nWMQHLaJ1Xiuqp8t6jfOa76UGq3cN8HCgYgFYEx0AAAAASUVORK5CYII=);
+$l3: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAYCAMAAACRH25gAAABEVBMVEUAAAA/v8D/30A/v78/v7///2b/4UH/40X53kX/txxAvsD/4ED/30D/4ED/4UT/30H/30H/zC3/4j//30Co0H//3z//4EH/3z//30D/3z7/3UH/30D/30D/4EL/4kD/4UT/40H/4UP/50X/7kT/50X/viH/wCT33Uj/wSTr3VH/xSj/4EH/3kH/1Tr/ySpAv8D/3z//30H/shdnx6lDwL9ZxLLV2WL/yixKwrtvyKXa2l5UxLSo0YDt3VH/1zn/uR1dw61mwqd2yaCRzY+003itxHPB1XDH1mzh2lfnvj7/3T3/zjKAypuHzJaGwpCaz4qazoqfz4ehxX681HPDxGLHxF7OwVjdxEzv10f/vCP/viL7ck8LAAAAL3RSTlMA8sWtJgUzHv7+7+bNhjx8Uiwa+vjy17Oqo5mOalxGNC8iFg8L3dnNu5+WdXVoW0klAY8AAAFkSURBVDjLlZTXcoMwEEVtHJrBuPfuOL0giY57b+k9+f8PiQBNJo/SfVhmmDlzd1fSjf1TRjxKxHVKxRNHBOP7QeUukvivRYsnCc2XhFhMgJKr6wtbp1WCWCv5q1grVTDMNdhQw3ECc6rWa6af7weev9SpReB2rgoBBAC+DoKZTZMSFrlyrSsoEGBhfmQY9mjr0jo3gJpTMBfB8MvyJYO+7YpWhRBjMKI/vUeGmfkeBBEY6nvAsLDjThNzER58f17mtG2L9WIqHY1LrCdvQ2DfUcEZDobw39Rj9D6UhhZl20LrJqTIYTloZbgMlyTnhBsLywGhqcmw7Wvt1CHO2BftvDU9LOTVrDw5jPf7sTNBSJ75cEEL90sK176VEZH8YC03tkUJ8zx272ZPInY3M5hfVU3VspfnH6up59vMcBlU+E6qMNefpBF7GDTwNS1C3LKxNVljSAxK/SwIQNdkC0AiMcMYvb/RmOsj5pL09wAAAABJRU5ErkJggg==);
+$l4: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAAAYCAMAAACcAR4nAAAAmVBMVEUAAAD/30A9yWz/4EJ+0mH/3z49yG3/4ED/30D//2Y6ym/M2U7/wDL9jyL/kyM/zGw+x24+yW3/30D/kCL/vhz+jyH/0zv/kSLl3Uj/qSv+3kD/zTn/uzL/mCVDy22p1lj/2z3/0zr/pCmB0mH230P/2Tv/xzj/wDX/1DP/ri3/ySn/myVyvF292VO92FPpwTvRnzn/sy//sy7xHNttAAAAEXRSTlMA3PJT/fOtpYoFJ+LiwEAoJfgCyR8AAAD6SURBVDjLtdLZcsMgDAVQvKZJV3oLGDtObafZu///xxWoMnmVHnIfGDHDmdEIKaUAmBcKQjQjef2kpPSCF5EaQE51HSku1PBpHug94I77TTts9kcHfGtmAn2At88U6/EuoOouKcqXFtAbQpRXPi2IdB0VJZfOMxLeU9GsmLQgYJ2zVK6ZdEbvf4EfKj+YNPa7O0wnwOA0HXaxYyatwtuxDy6lj02/CWhre5NwP7YCmtGQECwNqhGNafjveEiXT9HndEE6mLQV7Vq0EktMdvRYilZCFYlu47lNtLz6+ueKrFjqWsUU2Rk2JVfmjyplXsyyqspuyxUX1gv1Bxb+XlL62MIoAAAAAElFTkSuQmCC);
+$l5: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAYCAMAAACRH25gAAAA8FBMVEUAAAD/30D/she5UYG5UoG4U4H/3kD/sha4UoH/sxb/sxn/3UD/uhz/tBj/tBj/3Dr2zkn/txv400f/shb/30D/shn/vh//shb/2Dr/30H/shf/ux7/shb/shf/sxn/4UP/thv/sxv/uBr/vCG5UoH/30D/shb/kCL/3T3+sRr3z0v/2zz/xjXBXnfcglbjjEv/zzr+zDX/tTD+qyrIZ2/blmXRdGTunj3+0zr/1jf/0TP/vDL1pi7/nCf/vCC9W3+7Vn7MeXPHZXHYgl7XfFzuv1P50kjzwkjnkkX92kP1rjb/0DL/0DH/tS//kSL9tSHQjW3GAAAAJHRSTlMA4v3zrSb6+O+cgHttVjQL/ff17Ong2dbUxMS5qY96RDglHRdJP56JAAABGUlEQVQ4y8XUx3LCMBCA4Y1pIQmQ3nvWazs22MaEDum9vf/bZGURPOS0uoT/Io1mvtHqIlAV7ZleUVAuX4C0zVn8hKIWC7BBRD2NolivPT5KBDoP+0T0oVGS6PWdjzqSyeGYyrDMwu0GzlfQVfgKQ2qgIDi3ShcnLD6dtCZvb+ueVxdhOKRyrcikqS13HdILyvCZZZ3uqbkVdnnz2OKLhRiOaEs9OnJGIydSTx5SiFJc26EDNsHAtQcBbzo0vBFjqJZo1572TN4dyjFUrHGGx14bTTCsUP/X9ukBzTBU1nxt/e82mmKobvupfWuhOebRY9eN79EkyHI4nAO2J/07XqJJDbnNZdZc5/XIfxJ/gKqFaeurl5z06/0BvCG8ApJdlIAAAAAASUVORK5CYII=);
+$l6: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAYCAMAAACRH25gAAAA2FBMVEUAAAD/kCLJPDn/3j7KPDn/3z/KPDnJOzn/4kb5z0D/4EH/4ED/4ED/4D7/30L/4kL/shn5iSX/sxb/1Tf/3j7/thz/4EH/shb/30D90jP/4EH/3D3/3kH/shn/30D/wSXytkD/tBf/4ET/thj/30TMPznKPTr/30D/kCL/shf/uDH5hyb/0jX/vSH/uDDysDzOSTvMQjn81UDljz7hgz7ddz7abD7WYTz+zC3/uR781kH2xkH0vUDpm0Dtpz/TVzz9zjjTUTbeajLnhjHrhyj3pCP2nyH9rhmIDBdnAAAAJnRSTlMA4q398OPzJhL+7n9tW0k2CvX19O/X1tXJw7eypKCSjWNgSyopKIsn6x0AAAEHSURBVDjLpdRHc8IwEIZhxyU4lEB674k+r2KBTQmQ3oD//48Q1oB18GEN702HZ2ZHs7NO3m4Q3Lq+YOa7FccqAHaY0vDKBli4Fr738FIKb1u4DvRFqXIbVoHXZE18Dd3HevjRg877KoVvWgafI6sjstI/Fj47ecg2BCbz4T/TDgtfqP07jY+X+C0V4nemeLh2QHTVqmNVP/0n+u6xcAOK6Ogwx90JkcKAhZuIiUawGhHFGLJwCKixUVJikTdWQMLCThVxnKF2FLWhW7y7godPYZKRTsL0zsSXRfiTiWsArLFNPSZuYJlcWQyYuImChsxjEBbhhHuGooI41n/SeMtq79nEmFmf3jnJ68Op8lda3wAAAABJRU5ErkJggg==);
+$i6: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAARnQU1BAACxjwv8YQUAAAABc1JHQgCuzhzpAAAA1VBMVEUAAAD/shn/4ED/4ED/30L/30H/4kL/kSL/4kb9jyL/30T/3z7/30D/4EH/4EH/4ED//3//4ET/3z7/4EH/3j7/kSP/jyL/30D/thj/tBf/shb/3D3/sxb/3j//4EH/4D3/30D/3z7/thz/3kH/4D7/thr/shn/30H/30H/shb/1Tf90jP/wSX/3kD/0jX/1Df/wST/3kD/30H/3z//kCL/jyL/shf/uDH+3kD/uDD+jyL/vSL/0jX/uR7/0jb/vSH+yy3/3T7/0zb+zC7+0jX/sxf/vCG6eW33AAAAMXRSTlMAClt/SeM24RLhKfuS1u9uBEvjbe/h4ckqYNWy9ba3W/z816R/16Ck7aD0w43tw/SNQcYsYAAAAS5JREFUKM9tUdV2wzAMVdImKXNXHDNPkuNAcfj/nzTJ2enLoiMfy/eKDXCQajCoQpkMEINSIiAqJ/rnZ/1SokvULcNrHcZOrYRoEabY+o83msSIzcYBePKK+wQRGem4eHlv8DifuukEZIlhN+N0/gKLn+UMoNcmQs1F7R7AbLlbQOXBft94Q0mk/nINvXtrXyvg487ai1FKDpe40bW1K/Ih5K21e5REGiR18NPaLYZQI1ptkMUVkwQ5JX7frJBl0jv8WKMymTGZK7T+omdpbSIgq38cxyZhzck4EeJSUSJK8tgIocHIt0JUFBVJs9hkVIyJV0Kcil10mmQaqu2xL0Soxl8dhfVJof4DuzW5jXAqR+zU/Ysx2o9onhuxRfPYrTiqR0eRaH1cF4nGkQjAL4KCPoF9S50TAAAAAElFTkSuQmCC);
+
+// 这里设计思路用了两种方法，第一种是直接将等级图标加背景色整体切成一张背景图，设置一个基类level-icon，
+// 其中level1-51继承基类，再替换背景图片
+// 第二种是将等级图标设置伪元素，设置一个mixin level-icon，传入背景图的颜色实现。
+// 两种方法实现基本一样，要保持一致性的话，可以都改为第二种方法，第一种要传的图太多了（15个）
+// 共同的缺点是大小都是固定的，如果不固定感觉实现就有点麻烦，应该也用不着变大小吧，实在要变的话，再用一个scale？
+// total 60 * 24, icon 24 * 24, 背景色 48 * 24
+
+@mixin level-icon($color) {
+  margin-left: .16rem;  //刚好是伪元素超出的长度，保证左边对齐。
+  display: inline-block;
+  position: relative;
+  width: .64rem;
+  height: .32rem;
+  line-height: .32rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left center;
+  background-color: $color;
+  border-radius: .053333rem;
+  // padding: 
+  font-size: .2rem;
+  text-align: center;
+  color: #fff;
+  padding-left: .16rem;     // 在背景色中减去icon宽度的一半，再居中
+  
+  &:before{
+    content: '';
+    position: absolute;
+    width: .32rem;
+    height: .32rem;
+    left: -.16rem;
+    background: $i6 no-repeat center;
+    background-size: cover;
+  }
+}
+
+// size: 60 * 24
+.level-icon {
+  display: inline-block;
+  width: .8rem;
+  height: .32rem;
+  line-height: .32rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  // padding: 
+  font-size: .2rem;
+  text-align: center;
+  color: #fff;
+  padding-left: .32rem;
+}
+
+.level1 {
+  @extend .level-icon;
+  background-image: $l1;
+}
+.level11 {
+  @extend .level-icon;
+  background-image: $l2;
+}
+.level21 {
+  @extend .level-icon;
+  background-image: $l3;
+}
+.level31 {
+  @extend .level-icon;
+  background-image: $l4;
+}
+.level41 {
+  @extend .level-icon;
+  background-image: $l5;
+}
+.level51 {
+  @extend .level-icon;
+  background-image: $l6;
+}
+.level52 {
+  @include level-icon(#c677c6);
+}
+.level53 {
+  @include level-icon(#267bba);
+}
+.level54 {
+  @include level-icon(#b25939);
+}
+.level55 {
+  @include level-icon(#90a362);
+}
+.level56 {
+  @include level-icon(#5a9e91);
+}
+.level57 {
+  @include level-icon(#5d88c6);
+}
+.level58 {
+  @include level-icon(#c47a91);
+}
+.level59 {
+  @include level-icon(#77b272);
+}
+.level60 {
+  @include level-icon(#513636);
+}
+
