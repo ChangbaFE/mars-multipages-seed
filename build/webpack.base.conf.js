@@ -8,13 +8,9 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-
-
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  // entry: {
-  //   app: './src/main.js'
-  // },
+
   /* 改为多入口 */ 
   entry: utils.entries(),
   /* 改为多入口 */
@@ -30,7 +26,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
+      '@': resolve('src')
     }
   },
   module: {
@@ -70,7 +66,7 @@ module.exports = {
         }
       },
       {
-        test: /\.sass$/,
+        test: /\.(sass|scss)$/,
         loaders: ['style', 'css', 'sass']
       }
     ]

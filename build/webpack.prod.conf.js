@@ -10,6 +10,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const AssetsPlugin = require('assets-webpack-plugin')
+const assetsPluginInstance = new AssetsPlugin({
+  // filename: 'build/webpack.assets.js',
+  // processOutput: function (assets) {
+  //   return 'window.WEBPACK_ASSETS = ' + JSON.stringify(assets);
+  // }
+})
 
 const env = require('../config/prod.env')
 
@@ -24,8 +31,10 @@ const webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? config.build.devtool : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name]/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[name]/[id].[chunkhash].js')
+    filename: utils.assetsPath('js/[name].[chunkhash:8].js'),
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash:8].js')
+    // filename: utils.assetsPath('js/[name]/[name].[chunkhash].js'),
+    // chunkFilename: utils.assetsPath('js/[name]/[id].[chunkhash].js')
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -43,7 +52,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name]/[name].[contenthash].css'),
+      filename: utils.assetsPath('css/[name].[contenthash:8].css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
       // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 
@@ -111,11 +120,21 @@ const webpackConfig = merge(baseWebpackConfig, {
     // copy custom static assets
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
+        from: path.resolve(__dirname, '../static/css'),
+        to: config.build.assetsSubDirectory + '/css',
         ignore: ['.*']
-      }
-    ])
+      },
+      {
+        from: path.resolve(__dirname, '../static/js'),
+        to: config.build.assetsSubDirectory + '/js',
+        ignore: ['.*']
+      },
+      // {
+      //   from: path.resolve(__dirname, '../static/favicon.ico'),
+      //   to: config.build.assetsRoot,
+      // }
+    ]),
+    // assetsPluginInstance
     // add .concat(utils.htmlPlugin())
   ].concat(utils.htmlPlugin())
 

@@ -4,9 +4,23 @@ const config = require('../config')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const packageConfig = require('../package.json')
 
+
+// glob是webpack安装时依赖的一个第三方模块，还模块允许你使用 *等符号, 例如lib/*.js就是获取lib文件夹下的所有js后缀名的文件
+const glob = require('glob')
+// 页面模板
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+// 取得相应的页面路径，因为之前的配置，所以是src文件夹下的pages文件夹
+const PAGE_PATH = path.resolve(__dirname, '../src/pages')
+// 用于做相应的merge处理
+const merge = require('webpack-merge')
+
+const buildingPage = process.argv[2];
+
 exports.assetsPath = function (_path) {
+  // 修改production assetsSubDirectory
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
+    ? `pages/${buildingPage}/${config.build.assetsSubDirectory}`
+    // ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
 
   return path.posix.join(assetsSubDirectory, _path)
@@ -56,6 +70,7 @@ exports.cssLoaders = function (options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
+        publicPath:'../../',
         fallback: 'vue-style-loader'
       })
     } else {
@@ -109,17 +124,6 @@ exports.createNotifierCallback = () => {
   }
 }
 
-
-// glob是webpack安装时依赖的一个第三方模块，还模块允许你使用 *等符号, 例如lib/*.js就是获取lib文件夹下的所有js后缀名的文件
-var glob = require('glob')
-// 页面模板
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-// 取得相应的页面路径，因为之前的配置，所以是src文件夹下的pages文件夹
-var PAGE_PATH = path.resolve(__dirname, '../src/pages')
-// 用于做相应的merge处理
-var merge = require('webpack-merge')
-
-
 //多入口配置
 // 通过glob模块读取pages文件夹下的所有对应文件夹下的js后缀文件，如果该文件存在
 // 那么就作为入口处理
@@ -128,7 +132,14 @@ exports.entries = function () {
   var map = {}
   entryFiles.forEach((filePath) => {
     var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
-    map[filename] = filePath
+    if (process.env.NODE_ENV === 'production') {
+      if (filename == buildingPage) {
+        map[filename] = filePath;
+      }
+    }
+    else {
+      map[filename] = filePath;
+    }
   })
   return map
 }
@@ -140,26 +151,87 @@ exports.htmlPlugin = function () {
   let arr = []
   entryHtml.forEach((filePath) => {
     let filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
-    let conf = {
-      // 模板来源
-      template: filePath,
-      // 文件名称
-      filename: 'pages/'+ filename + '/' +filename + '.html',
-      // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
-      chunks: ['manifest', 'vendor', filename],
-      inject: true
-    }
+    // Production
     if (process.env.NODE_ENV === 'production') {
-      conf = merge(conf, {
-        minify: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: true
-        },
-        chunksSortMode: 'dependency'
-      })
+      if (filename == buildingPage) {
+        let conf = {
+          // 模板来源
+          template: filePath,
+          // production static path
+          staticPath: '/static',
+          // 文件名称
+          filename: 'pages/'+ filename + '/' + filename + '.html',
+          // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
+          chunks: ['manifest', 'vendor', filename],
+          inject: true
+        }
+        if (process.env.NODE_ENV === 'production') {
+          conf = merge(conf, {
+            minify: {
+              removeComments: true,
+              // collapseWhitespace: true,
+              removeAttributeQuotes: true
+            },
+            chunksSortMode: 'dependency'
+          })
+        }
+        arr.push(new HtmlWebpackPlugin(conf))
+      }
     }
-    arr.push(new HtmlWebpackPlugin(conf))
+    else {
+      let conf = {
+        // 模板来源
+        template: filePath,
+        // dev static path
+        staticPath: '/static',
+        // 文件名称
+        filename: 'pages/'+ filename + '/' + filename + '.html',
+        // 页面模板需要加对应的js脚本，如果不加这行则每个页面都会引入所有的js脚本
+        chunks: ['manifest', 'vendor', filename],
+        inject: true
+      }
+      arr.push(new HtmlWebpackPlugin(conf))
+    }
   })
   return arr
+}
+
+exports.showMars = function () {
+  console.log('      ███▄ ▄███▓ ▄▄▄       ██▀███    ██████ ')
+  console.log('     ▓██▒▀█▀ ██▒▒████▄    ▓██ ▒ ██▒▒██    ▒ ')
+  console.log('     ▓██    ▓██░▒██  ▀█▄  ▓██ ░▄█ ▒░ ▓██▄   ')
+  console.log('     ▒██    ▒██ ░██▄▄▄▄██ ▒██▀▀█▄    ▒   ██▒')
+  console.log('     ▒██▒   ░██▒ ▓█   ▓██▒░██▓ ▒██▒▒██████▒▒')
+  console.log('     ░ ▒░   ░  ░ ▒▒   ▓▒█░░ ▒▓ ░▒▓░▒ ▒▓▒ ▒ ░')
+  console.log('     ░  ░      ░  ▒   ▒▒ ░  ░▒ ░ ▒░░ ░▒  ░ ░')
+  console.log('     ░      ░     ░   ▒     ░░   ░ ░  ░  ░  ')
+  console.log('            ░         ░  ░   ░           ░  ')
+  console.log('   \n')
+}
+
+exports.showLogo = function () {
+  console.log('                        .a                ')     
+  console.log('                     .11aaa                     ')
+  console.log('                  1111aaaaa   a                 ')
+  console.log('                11111aaaaaaa111aa               ')
+  console.log('             11111aaaaaaaaaaaaaaaan             ')
+  console.log('     1     a1111z.....       .aaaaaa     a      ')
+  console.log('    z11   1111...                aaaa  .aa      ')
+  console.log('    11111111...                    aaaaaaao     ')
+  console.log('    111111....                      aaaaaav     ')
+  console.log('    11111^...  % %           % %     aaaaa-     ')
+  console.log('     1111...   %%%           %%%      aaaa      ')
+  console.log('     1111...   ;;;           ;;;      aaaa      ')
+  console.log('     v11n...                          aaa       ')
+  console.log('      111...................          aaa       ')
+  console.log('      1111aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa       ')
+  console.log('      ~1111aaaaaaaaaaaaaaaaaaaaaaaaaaaaa        ')
+  console.log('       11111aaaaaaaaaaaaaaaaaaaaaaaaaaa^        ')
+  console.log('        z11111aaaaaaaaaaaaaaaaaaaaaaaa          ')
+  console.log('          1111111aaaaaaaaaaaaaaaaaa11           ')
+  console.log('            1111111111uaaaaau111111             ')
+  console.log('               11111111111111111                ')
+  console.log('                     ^auz.          ')
+  console.log('      ======================================    ')
+  console.log('      ======================================    ')
 }

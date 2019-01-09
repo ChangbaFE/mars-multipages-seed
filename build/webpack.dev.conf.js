@@ -9,6 +9,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+const AssetsPlugin = require('assets-webpack-plugin')
+const assetsPluginInstance = new AssetsPlugin({
+  // filename: 'build/webpack.assets.js',
+  // processOutput: function (assets) {
+  //   return 'window.WEBPACK_ASSETS = ' + JSON.stringify(assets);
+  // }
+})
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -68,7 +75,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
     // add .concat(utils.htmlPlugin())
   ].concat(utils.htmlPlugin())
 })
@@ -87,7 +94,8 @@ module.exports = new Promise((resolve, reject) => {
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
+          // messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
+          messages: [`Your application is running here: http://127.0.0.1:${port}`],
         },
         onErrors: config.dev.notifyOnErrors
         ? utils.createNotifierCallback()

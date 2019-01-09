@@ -1,0 +1,68 @@
+<template>
+    <div class="container">
+        <div class="btn-group">
+            <button class="btn btn-primary" @click="showLoading">showLoading</button>
+            <button class="btn btn-primary" @click="hideLoading">hideLoading</button>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'loading',
+  data() {
+    return {
+       
+    }
+  },
+  computed: {
+  },
+  mounted() {
+  },
+  created() {
+  },
+  methods: {
+    showLoading: function () {
+        this.$loading.show();
+    },
+    hideLoading: function () {
+        this.$loading.hide();
+    },
+  }
+}
+</script>
+<style lang="scss" scoped>
+@import "~@/assets/sass/base/mixins";
+
+.container {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .btn {
+            width: 80%;
+            padding-left: 28px;
+            padding-right: 28px;
+            box-sizing: border-box;
+            font-size: 36px;
+            text-align: center;
+            text-decoration: none;
+            color: #FFFFFF;
+            line-height: 2.33333333;
+            border-radius: 10px;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            overflow: hidden;
+            margin: 10px;
+            &.btn-primary {
+                background-color: #04BE02;
+                z-index: 1002;
+            }
+        }
+    }
+}
+
+</style>
