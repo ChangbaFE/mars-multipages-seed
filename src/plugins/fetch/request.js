@@ -6,14 +6,14 @@ import qs from 'qs';
 
 // 设置默认请求头
 axios.defaults.headers = {
-    'X-Requested-With': 'XMLHttpRequest'
+  'X-Requested-With': 'XMLHttpRequest'
 }
 
 // 请求超时时间
 axios.defaults.timeout = 10000;
 
 // http request 拦截器
-axios.interceptors.request.use( config => {
+axios.interceptors.request.use(config => {
   // loading
   return config
 }, error => {
@@ -21,10 +21,10 @@ axios.interceptors.request.use( config => {
 })
 
 // http response 拦截器
-axios.interceptors.response.use( response => {
+axios.interceptors.response.use(response => {
   // 请求成功
   if (response.status === 200 || response.status === 304) {
-    return Promise.resolve(response); 
+    return Promise.resolve(response);
   }
   else {
     return Promise.reject(response);
@@ -33,9 +33,9 @@ axios.interceptors.response.use( response => {
   const { response } = error;
 
   if (response) {
-     // 请求已发出，但是不在2xx的范围 
-     errorHandler(response.status, response.data.message);
-     return Promise.reject(response);
+
+    errorHandler(response.status, response.data.message); //请求已发出，但是不在2xx的范围
+    return Promise.reject(response);
   }
   else {
     // 处理断网的情况
@@ -54,15 +54,16 @@ function errorHandler(status, errMsg) {
     // 未登录
     case 401:
       console.log('未登录');
-      alert('未登录');
+      alert('未登录'); // eslint-disable-line no-alert
       break;
     case 403:
       console.log('登录过期');
-      alert('登录过期');
+      alert('登录过期'); // eslint-disable-line no-alert
       break;
     case 404:
       console.log('请求资源不存在');
-      alert('请求资源不存在');
+      alert('请求资源不存在'); // eslint-disable-line no-alert
+      break;
     default:
       console.log(errMsg);
       break;
@@ -70,7 +71,7 @@ function errorHandler(status, errMsg) {
 }
 
 export default {
-  post (url, data) {
+  post(url, data) {
     return new Promise((resolve, reject) => {
       axios({
         method: 'post',
@@ -82,13 +83,13 @@ export default {
         }
       }).then(res => {
         resolve(res.data);
-       }
+      }
       ).catch(err => {
         reject(err.data);
       })
     })
   },
-  get (url, params) {
+  get(url, params) {
     return new Promise((resolve, reject) => {
       axios({
         method: 'get',
@@ -98,12 +99,12 @@ export default {
           'X-Requested-With': 'XMLHttpRequest'
         }
       }).then(res => {
-         resolve(res.data);
-        }
+        resolve(res.data);
+      }
       ).catch(err => {
         reject(err.data);
       })
     })
-    
+
   }
 }

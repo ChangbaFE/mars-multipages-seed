@@ -5,14 +5,14 @@
       <img src="@/assets/images/marsdemo/vs.png" class="vs">
       <img src="@/assets/images/marsdemo/logo_mars.png" class="logo">
     </div>
-    <router-view/>
-    <progress-bar/>
+    <router-view></router-view>
+    <progress-bar></progress-bar>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'marsdemo'
+  name: 'MarsDemo'
 }
 </script>
 

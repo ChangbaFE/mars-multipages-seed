@@ -1,19 +1,21 @@
 <template>
-    <div class="container">
-        <div class="btn-group">
-            <button class="btn btn-primary" @click="showLoading">showLoading</button>
-            <button class="btn btn-primary" @click="hideLoading">hideLoading</button>
-        </div>
+  <div class="container">
+    <div class="btn-group">
+      <button class="btn btn-primary" @click="showLoading">
+        showLoading
+      </button>
+      <button class="btn btn-primary" @click="hideLoading">
+        hideLoading
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'loading',
+  name: 'Loading',
   data() {
-    return {
-       
-    }
+    return {}
   },
   computed: {
   },
@@ -22,12 +24,12 @@ export default {
   created() {
   },
   methods: {
-    showLoading: function () {
-        this.$loading.show();
+    showLoading: function() {
+      this.$loading.show();
     },
-    hideLoading: function () {
-        this.$loading.hide();
-    },
+    hideLoading: function() {
+      this.$loading.hide();
+    }
   }
 }
 </script>

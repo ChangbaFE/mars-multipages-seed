@@ -1,18 +1,18 @@
 <template>
-    <div class="container">
-        <div class="btn-group">
-            <button class="btn btn-primary" @click="showProgressBar">showProgressBar</button>
-        </div>
+  <div class="container">
+    <div class="btn-group">
+      <button class="btn btn-primary" @click="showProgressBar">
+        showProgressBar
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'loading',
+  name: 'ProgressBar',
   data() {
-    return {
-       
-    }
+    return {}
   },
   computed: {
   },
@@ -21,12 +21,12 @@ export default {
   created() {
   },
   methods: {
-    showProgressBar: function () {
-        this.$progress.start();
-        // setTimeout(() => {
-        //     this.$progress.finish();
-        // }, 2000);
-    },
+    showProgressBar: function() {
+      this.$progress.start();
+    // setTimeout(() => {
+    //     this.$progress.finish();
+    // }, 2000);
+    }
   }
 }
 </script>

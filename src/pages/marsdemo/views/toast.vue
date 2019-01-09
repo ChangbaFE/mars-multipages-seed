@@ -1,20 +1,24 @@
 <template>
-    <div class="container">
-        <div class="btn-group">
-            <button class="btn btn-primary" @click="triggerToast">Toast</button>
-            <button class="btn btn-primary" @click="triggerToastSuccess">Toast Success</button>
-            <button class="btn btn-primary" @click="triggerToastError">Toast Error</button>
-        </div>
+  <div class="container">
+    <div class="btn-group">
+      <button class="btn btn-primary" @click="triggerToast">
+        Toast
+      </button>
+      <button class="btn btn-primary" @click="triggerToastSuccess">
+        Toast Success
+      </button>
+      <button class="btn btn-primary" @click="triggerToastError">
+        Toast Error
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'toast',
+  name: 'Toast',
   data() {
-    return {
-       
-    }
+    return {}
   },
   computed: {
   },
@@ -23,16 +27,16 @@ export default {
   created() {
   },
   methods: {
-    triggerToast: function () {
-        this.$toast.notify('加载成功');
-        // this.$toast.notify('获取数据成功');
+    triggerToast: function() {
+      this.$toast.notify('加载成功');
+      // this.$toast.notify('获取数据成功');
     },
-    triggerToastSuccess: function () {
-        this.$toast.success('加载成功');
+    triggerToastSuccess: function() {
+      this.$toast.success('加载成功');
     },
-    triggerToastError: function () {
-        this.$toast.error('加载失败');
-    },
+    triggerToastError: function() {
+      this.$toast.error('加载失败');
+    }
   }
 }
 </script>

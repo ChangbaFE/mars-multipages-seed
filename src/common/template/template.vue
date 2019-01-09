@@ -1,24 +1,24 @@
 <template>
   <div id="app">
-    <router-view/>
-    <progress-bar/>
+    <router-view></router-view>
+    <progress-bar></progress-bar>
   </div>
 </template>
 
 <script>
 export default {
   name: 'Template',
-  mounted () {
+  mounted() {
     this.$progress.finish();
   },
-  created () {
+  created() {
     //  [App.vue specific] When App.vue is first loaded start the progress bar
     this.$progress.start()
     //  hook the progress bar to start before we move router-view
     this.$router.beforeEach((to, from, next) => {
       //  does the page we want to go to have a meta.progress object
       if (to.meta.progress !== undefined) {
-        let meta = to.meta.progress
+        const meta = to.meta.progress
         // parse meta tags
         this.$progress.parseMeta(meta)
       }
@@ -28,7 +28,7 @@ export default {
       next()
     })
     //  hook the progress bar to finish after we've finished moving router-view
-    this.$router.afterEach((to, from) => {
+    this.$router.afterEach((to, from) => { // eslint-disable-line
       //  finish the progress bar
       this.$progress.finish()
     })

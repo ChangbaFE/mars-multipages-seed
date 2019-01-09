@@ -5,13 +5,13 @@ import Modal from "@/plugins/modal/index";
 import request from "@/plugins/fetch/request";
 
 
-const install = function (Vue) {
-    Vue.use(Toast);
-    Vue.use(Loading);
-    Vue.use(ProgressBar);
-    Vue.use(Modal);
+const install = function(Vue) {
+  Vue.use(Toast);
+  Vue.use(Loading);
+  Vue.use(ProgressBar);
+  Vue.use(Modal);
 
-    Vue.prototype.$request = request;
+  Vue.prototype.$request = request;
 }
 
-export default install;
+export default install

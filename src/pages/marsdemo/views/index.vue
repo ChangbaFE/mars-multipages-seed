@@ -1,34 +1,32 @@
 <template>
-    <div class="container">
-        <ul class="table">
-            <li @click="goToast">
-                <i class="icon icon_nav_toast"></i>
-                <p>Toast</p>
-            </li>
-            <li @click="goLoading">
-                <i class="icon icon_nav_loading"></i>
-                <p>Loading</p>
-            </li>
-            <li @click="goProgressBar">
-                <i class="icon icon_nav_progress"></i>
-                <p>Progress</p>
-            </li>
-            <li @click="goModal">
-                <i class="icon icon_nav_modal"></i>
-                <p>Modal</p>
-            </li>
-        </ul>
-    </div>
+  <div class="container">
+    <ul class="table">
+      <li @click="goToast">
+        <i class="icon icon_nav_toast"></i>
+        <p>Toast</p>
+      </li>
+      <li @click="goLoading">
+        <i class="icon icon_nav_loading"></i>
+        <p>Loading</p>
+      </li>
+      <li @click="goProgressBar">
+        <i class="icon icon_nav_progress"></i>
+        <p>Progress</p>
+      </li>
+      <li @click="goModal">
+        <i class="icon icon_nav_modal"></i>
+        <p>Modal</p>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
 
 export default {
-  name: 'marsdemo',
+  name: 'MarsDemo',
   data() {
-    return {
-       
-    }
+    return {}
   },
   computed: {
   },
@@ -37,17 +35,17 @@ export default {
   created() {
   },
   methods: {
-    goToast: function () {
-        this.$router.push('/toast');
+    goToast: function() {
+      this.$router.push('/toast');
     },
-    goLoading: function () {
-        this.$router.push('/loading')
+    goLoading: function() {
+      this.$router.push('/loading')
     },
-    goProgressBar: function () {
-        this.$router.push('/progressbar')
+    goProgressBar: function() {
+      this.$router.push('/progressbar')
     },
-    goModal: function () {
-        this.$router.push('/modal')
+    goModal: function() {
+      this.$router.push('/modal')
     }
   }
 }

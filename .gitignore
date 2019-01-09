@@ -4,6 +4,8 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+gulpfile.js
+/build/tools
 
 # Editor directories and files
 .idea

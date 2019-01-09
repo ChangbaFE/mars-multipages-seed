@@ -19,5 +19,5 @@ Object.keys(filters).forEach(key => {
 new Vue({
   el: '#app',
   router,
-  render: (h) => h(template),
+  render: (h) => h(template)
 })

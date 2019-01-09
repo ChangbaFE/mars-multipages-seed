@@ -1,45 +1,51 @@
 <!-- Confirm 组件 -->
 <template>
-    <div class="weui_dialog_alert" id="confirmModal" v-show="isShow">
-        <div class="weui_mask"></div>
-        <transition name="bounce">
-            <div class="weui_dialog">
-                <div class="weui_dialog_hd">
-                    <strong class="weui_dialog_title">{{ options.title }}</strong>
-                </div>
-                <div class="weui_dialog_bd">{{ options.content }}</div>
-                <div class="weui_dialog_ft">
-                    <a href="javascript:;" class="weui_btn_dialog primary" @click="success">{{ options.confirmText }}</a>
-                </div>
-            </div>
-        </transition>
-    </div>
+  <div class="weui_dialog_alert" id="confirmModal" v-show="isShow">
+    <div class="weui_mask"></div>
+    <transition name="bounce">
+      <div class="weui_dialog">
+        <div class="weui_dialog_hd">
+          <strong class="weui_dialog_title">
+            {{ options.title }}
+          </strong>
+        </div>
+        <div class="weui_dialog_bd">
+          {{ options.content }}
+        </div>
+        <div class="weui_dialog_ft">
+          <a href="javascript:;" class="weui_btn_dialog primary" @click="success">
+            {{ options.confirmText }}
+          </a>
+        </div>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-            isShow: false,
-            options: {
-                title: '提示',
-                content: '弹窗内容，告知当前页面信息等',
-                confirmText: '确定'
-            }
-        };
-    },
+  components: {},
 
-    components: {},
+  data() {
+    return {
+      isShow: false,
+      options: {
+        title: '提示',
+        content: '弹窗内容，告知当前页面信息等',
+        confirmText: '确定'
+      }
+    };
+  },
 
-    computed: {},
+  computed: {},
 
-    // mounted: {},
+  // mounted: {},
 
-    methods: {
-        success() {
-            this.isShow = false;
-        }
+  methods: {
+    success() {
+      this.isShow = false;
     }
+  }
 }
 
 </script>

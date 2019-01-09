@@ -1,49 +1,48 @@
 <template>
-    <transition name="fade">
-        <div class="rule-mask" id="rulemask" v-show="isShow">
-            <div class="rule">  
-                <div class="title">
-                    <div class="hd">
-                        <p>主题：活动title</p>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="para">
-                        <div class="hd">
-                            <p>活动规则：</p>
-                        </div>
-                        <div class="bd">
-                            <p>1. 活动期间，所有火星粉丝0-100的主播，每日首次开播，官方账号则赠送9个火星人礼物作为开播奖励</p>
-                            <p>2. 奖励的礼物在主播开播5分钟后由官方账号“火星现场”送出</p>
-                            <p>3. 截止至11月4日23:59:59，排行榜累计观众数top5的主播会有额外奖励</p>
-                            <p>4. 活动期间，若主播的粉丝有增长且超过100人，其榜单排名的数据则停止更新</p>
-                            <p>5. 若发现有刷榜行为的用户，系统判断其违规并移除本次活动</p>
-                        </div>
-                    </div>
-                </div>
-                <i class="close-btn-icon" id="closeBtn" @click="hide"></i>
-            </div>
+  <transition name="fade">
+    <div class="rule-mask" id="rulemask" v-show="isShow">
+      <div class="rule">  
+        <div class="title">
+          <div class="hd">
+            <p>主题：活动title</p>
+          </div>
         </div>
-    </transition>
+        <div class="content">
+          <div class="para">
+            <div class="hd">
+              <p>活动规则：</p>
+            </div>
+            <div class="bd">
+              <p>1. 活动期间，所有火星粉丝0-100的主播，每日首次开播，官方账号则赠送9个火星人礼物作为开播奖励</p>
+              <p>2. 奖励的礼物在主播开播5分钟后由官方账号“火星现场”送出</p>
+              <p>3. 截止至11月4日23:59:59，排行榜累计观众数top5的主播会有额外奖励</p>
+              <p>4. 活动期间，若主播的粉丝有增长且超过100人，其榜单排名的数据则停止更新</p>
+              <p>5. 若发现有刷榜行为的用户，系统判断其违规并移除本次活动</p>
+            </div>
+          </div>
+        </div>
+        <i class="close-btn-icon" id="closeBtn" @click="hide"></i>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <script>
 export default {
-    name: "RuleMask",
+  name: "RuleMask",
 
-    props: {
-        isShow: {
-            type: Boolean,
-            default: false
-        }
-    },
-    computed: {
-    },
-    methods: {
-        hide: function () {
-            this.$emit('hideRule');
-        }
+  props: {
+    isShow: {
+      type: Boolean,
+      default: false
     }
+  },
+  computed: {},
+  methods: {
+    hide: function() {
+      this.$emit('hideRule');
+    }
+  }
 }
 </script>
 
@@ -67,7 +66,7 @@ export default {
         margin-top: 3.2rem;
         margin-bottom: 2rem;
         border-radius: 0.333333rem;
-        background:#242c62; /* 一些不支持背景渐变的浏览器 */  
+        background:#242c62; /* 一些不支持背景渐变的浏览器 */
         font-size: 0.373333rem;
         color: #fff;
         line-height: 1.2;

@@ -1,41 +1,43 @@
 <!-- Toast 组件 -->
 <template>
-    <!--BEGIN toast-->
-    <div class="toast-container" id="toast">
-        <div class="toast">
-            <div class="toast_t" :class="[pos, isShow ? 'fade-in': 'fade-out']" v-if="type == 'notify'">
-                <span>{{ message }}</span>
-            </div>
-            <div class="toast_weui" :class="[pos, isShow ? 'fade-in': 'fade-out']" v-if="type == 'success' || type == 'error'">
-                <div class="weui_mask_transparent"></div>
-                <div class="weui_toast">
-                    <i class="weui_icon_toast" :class="[type == 'success' ? 'success' : 'error']"></i>
-                    <p class="weui_toast_content">{{ message }}</p>
-                </div>
-            </div>
+  <!--BEGIN toast-->
+  <div class="toast-container" id="toast">
+    <div class="toast">
+      <div class="toast_t" :class="[pos, isShow ? 'fade-in': 'fade-out']" v-if="type == 'notify'">
+        <span>{{ message }}</span>
+      </div>
+      <div class="toast_weui" :class="[pos, isShow ? 'fade-in': 'fade-out']" v-if="type == 'success' || type == 'error'">
+        <div class="weui_mask_transparent"></div>
+        <div class="weui_toast">
+          <i class="weui_icon_toast" :class="[type == 'success' ? 'success' : 'error']"></i>
+          <p class="weui_toast_content">
+            {{ message }}
+          </p>
         </div>
+      </div>
     </div>
-    <!--end toast-->
+  </div>
+  <!--end toast-->
 </template>
 
 <script>
 export default {
-    data () {
-        return {
-            type: '',
-            message: '',
-            isShow: false,
-            pos: 'center',
-        };
-    },
+  components: {},
 
-    components: {},
+  data() {
+    return {
+      type: '',
+      message: '',
+      isShow: false,
+      pos: 'center'
+    };
+  },
 
-    computed: {},
+  computed: {},
 
-    // mounted: {},
+  // mounted: {},
 
-    methods: {}
+  methods: {}
 }
 
 </script>
@@ -171,14 +173,12 @@ export default {
                     font-size: 90px;
                 }
             }
-            
             .weui_toast_content {
                 margin: 15px 0 0 0;
                 font-size: 28px;
             }
         }
     }
-    
 }
 
 /* Animation */
@@ -192,7 +192,7 @@ export default {
 .fade-out {
     -webkit-animation: fadeOut 1s;
     -webkit-animation-fill-mode: forwards;
-    animation: fadeOut 1s; 
+    animation: fadeOut 1s;
     animation-fill-mode: forwards;
 }
 
@@ -231,6 +231,6 @@ export default {
         opacity: 0;
     }
 }
-/* Animation */ 
+/* Animation */
 
 </style>

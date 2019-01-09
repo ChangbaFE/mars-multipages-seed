@@ -1,16 +1,20 @@
 <template>
-    <div class="container">
-        <div class="header">Header</div>
-        <div class="wrapper">
-          <p>Body</p>
-          <p>是否微信QQ: {{isQQorWeChat}}</p>
-          <p>是否火星: {{isMars}}</p>
-          <p>是否唱吧: {{isCB}}</p>
-          <p>curuserid: {{curuserid}}</p>
-          <p>token: {{token}}</p>
-        </div>
-        <div class="footer">Footer</div>
+  <div class="container">
+    <div class="header">
+      Header
     </div>
+    <div class="wrapper">
+      <p>Body</p>
+      <p>是否微信QQ: {{ isQQorWeChat }}</p>
+      <p>是否火星: {{ isMars }}</p>
+      <p>是否唱吧: {{ isCB }}</p>
+      <p>curuserid: {{ curuserid }}</p>
+      <p>token: {{ token }}</p>
+    </div>
+    <div class="footer">
+      Footer
+    </div>
+  </div>
 </template>
 
 <script>
@@ -22,8 +26,8 @@ export default {
       isQQorWeChat: /micromessenger/.test(navigator.userAgent.toLowerCase()) || /qq\//.test(navigator.userAgent.toLowerCase()) || /weibo/.test(navigator.userAgent.toLowerCase()),
       isMars: /easylive/.test(navigator.userAgent.toLowerCase()),
       isCB: /changba/.test(navigator.userAgent.toLowerCase()),
-      curuserid: commonObj.utils.getQueryStrFn('curuserid'),
-      token: commonObj.utils.getQueryStrFn('token'),
+      curuserid: commonObj.utils.getQueryStrFn('curuserid'),// eslint-disable-line
+      token: commonObj.utils.getQueryStrFn('token'),// eslint-disable-line
       loading: false,
       list: [],
     }
@@ -40,13 +44,13 @@ export default {
     async getList() {
       this.$loading.show();
       const params = {
-          'ac': 'getlist',
-          'curuserid': '57'
+        'ac': 'getlist',
+        'curuserid': '57'
       }
       const res = await this.$request.get('/api/get_weeklyrichrank_api.php', params);
       if (res.code === 1000) {
-          this.list = res.ranklist;
-          this.$loading.hide();
+        this.list = res.ranklist;
+        this.$loading.hide();
       }
     },
     // 跳转逻辑 范例
@@ -77,7 +81,7 @@ export default {
         redirectUrl = `https://mars.changba.com/download/mars_download.php`
       }
       window.location.href = redirectUrl;
-    },
+    }
   }
 }
 </script>

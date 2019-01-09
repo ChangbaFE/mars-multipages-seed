@@ -35,6 +35,6 @@ export default new Router({
       path: '/modal',
       name: 'Modal',
       component: Modal
-    },
+    }
   ]
 })

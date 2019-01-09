@@ -1,18 +1,18 @@
 <template>
-    <div class="container">
-        <div class="btn-group">
-            <button class="btn btn-primary" @click="showModal">showModal</button>
-        </div>
+  <div class="container">
+    <div class="btn-group">
+      <button class="btn btn-primary" @click="showModal">
+        showModal
+      </button>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'modal',
+  name: 'Modal',
   data() {
-    return {
-       
-    }
+    return {}
   },
   computed: {
   },
@@ -21,13 +21,13 @@ export default {
   created() {
   },
   methods: {
-    showModal: function () {
-        this.$modal.show({
-            title: '提示',
-            content: '你好，这是一个模态框',
-            confirmText: '确定'
-        });
-    },
+    showModal: function() {
+      this.$modal.show({
+        title: '提示',
+        content: '你好，这是一个模态框',
+        confirmText: '确定'
+      });
+    }
   }
 }
 </script>

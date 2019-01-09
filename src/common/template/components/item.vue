@@ -1,96 +1,100 @@
 <template>
-    <div class="list-item">
-        <div class="num">{{ index + 1 }}</div>
-        <div class="avatar" :class="avatarCrown">
-            <img :src="item.headphoto | prefixAvatar" class="img-circle lazyload" :class="imgCircle" alt="avatar">
-        </div>
-        <div class="name">
-            <div class="username">
-            <p class="text-nowrap">{{item.nickname}}</p>
-            </div>
-            <span class="live-icon" v-show="item.sessionid > 0">Live标签</span>
-        </div>
-        <div class="action">
-            <div class="count">
-                <p class="text-nowrap">{{item.count}}人观看</p>
-            </div>
-            <span class="btn" :class="[item.isfollow == 0 ? 'follow-btn' : 'following-btn']" @click="follow(item)" @click.stop>{{ item.isfollow == 0 ? '关注' : '已关注'}}</span>
-        </div>
+  <div class="list-item">
+    <div class="num">
+      {{ index + 1 }}
     </div>
+    <div class="avatar" :class="avatarCrown">
+      <img :src="item.headphoto | prefixAvatar" class="img-circle lazyload" :class="imgCircle" alt="avatar">
+    </div>
+    <div class="name">
+      <div class="username">
+        <p class="text-nowrap">
+          {{ item.nickname }}
+        </p>
+      </div>
+      <span class="live-icon" v-show="item.sessionid > 0">Live标签</span>
+    </div>
+    <div class="action">
+      <div class="count">
+        <p class="text-nowrap">{{item.count}}人观看</p>
+      </div>
+      <span class="btn" :class="[item.isfollow == 0 ? 'follow-btn' : 'following-btn']" @click="follow(item)" @click.stop>{{ item.isfollow == 0 ? '关注' : '已关注'}}</span>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "Item",
+  name: "Item",
 
-    props: {
-        item: {
-            type: Object,
-            default: {}
-        },
-        index: {
-            type: Number,
-            default: 0
-        },
-        curuserid: {
-            type: Number,
-        },
-        token: {
-            type: String,
-            default: ''
-        }
+  props: {
+    item: {
+      type: Object,
+      default: () => {}
     },
-    computed: {
-        // imgCircle: function() {
-        //     return this.index < 3 ? `border-${this.index}` : 'border-n';
-        // },
-        // avatarCrown: function() {
-        //     return this.index < 3 ? `crown-${this.index}` : ''
-        // }
+    index: {
+      type: Number,
+      default: 0
     },
-    methods: {
-        // 关注接口 范例
-        async follow(item) {
-            const followid = item.userid;
-            const cbfollowid = item.cbuserid;
-            const isfollow = item.isfollow;
-            //关注自己
-            if(followid === this.curuserid || cbfollowid === this.curuserid) {
-                this.$modal.show({
-                    content: '您时时刻刻都在关注着你自己个儿哦~~'
-                });
-                return;
-            }
-            // 已关注
-            if (isfollow == 1) {
-                return;
-            }
-            else {
-                const params = {
-                    ac: 'follow',
-                    curuserid: this.curuserid,
-                    followid: followid,
-                    cbfollowid: cbfollowid,
-                    token: this.token
-                }
-
-                const fRes = await this.$request.post('/api/mars_follow_api.php', params);
-
-                if (fRes && fRes.errorCode == 0) {
-                    console.log(fRes);
-                    item.isfollow = 1;
-                }
-                else {
-                    this.$toast.error('关注失败！')
-                }
-            }
-        }
+    curuserid: {
+      type: Number
+    },
+    token: {
+      type: String,
+      default: ''
     }
+  },
+  computed: {
+    // imgCircle: function() {
+    //     return this.index < 3 ? `border-${this.index}` : 'border-n';
+    // },
+    // avatarCrown: function() {
+    //     return this.index < 3 ? `crown-${this.index}` : ''
+    // }
+  },
+  methods: {
+    // 关注接口 范例
+    async follow(item) {
+      const followid = item.userid;
+      const cbfollowid = item.cbuserid;
+      const isfollow = item.isfollow;
+      //关注自己
+      if (followid === this.curuserid || cbfollowid === this.curuserid) {
+        this.$modal.show({
+          content: '您时时刻刻都在关注着你自己个儿哦~~'
+        });
+        return;
+      }
+      // 已关注
+      if (isfollow == 1) {
+        return;
+      }
+      else {
+        const params = {
+          ac: 'follow',
+          curuserid: this.curuserid,
+          followid: followid,
+          cbfollowid: cbfollowid,
+          token: this.token
+        }
+
+        const fRes = await this.$request.post('/api/mars_follow_api.php', params);
+
+        if (fRes && fRes.errorCode == 0) {
+          console.log(fRes);
+          item.isfollow = 1;
+        }
+        else {
+          this.$toast.error('关注失败！')
+        }
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-// CSS 
+// CSS
 .list-item {
     display: flex;
     flex-direction: row;
