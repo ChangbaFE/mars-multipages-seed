@@ -17,6 +17,10 @@
         <i class="icon icon_nav_modal"></i>
         <p>Modal</p>
       </li>
+      <li @click="goTabs">
+        <i class="icon icon_nav_tabs"></i>
+        <p>Tabs</p>
+      </li>
     </ul>
   </div>
 </template>
@@ -46,6 +50,9 @@ export default {
     },
     goModal: function() {
       this.$router.push('/modal')
+    },
+    goTabs: function() {
+      this.$router.push('/tabs')
     }
   }
 }
@@ -101,6 +108,10 @@ export default {
     }
     &.icon_nav_modal {
         background: url("~@/assets/images/icons/icon_nav_modal.png") no-repeat;
+        background-size: 100% 100%;
+    }
+    &.icon_nav_tabs {
+        background: url("~@/assets/images/icons/icon_nav_tab.png") no-repeat;
         background-size: 100% 100%;
     }
 }

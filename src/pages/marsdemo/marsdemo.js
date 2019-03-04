@@ -4,7 +4,9 @@ import router from './router'
 import 'lib-flexible/flexible'
 import * as filters from "@/common/filters";
 import plugins from '@/plugins/index';
+import components from '@/components/index';
 Vue.use(plugins);
+Vue.use(components);
 
 Vue.config.productionTip = false
 
