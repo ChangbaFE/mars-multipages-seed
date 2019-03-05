@@ -21,6 +21,10 @@
         <i class="icon icon_nav_tabs"></i>
         <p>Tabs</p>
       </li>
+      <li @click="goConsole">
+        <i class="icon icon_nav_vconsole"></i>
+        <p>VConsole</p>
+      </li>
     </ul>
   </div>
 </template>
@@ -53,6 +57,9 @@ export default {
     },
     goTabs: function() {
       this.$router.push('/tabs')
+    },
+    goConsole: function() {
+      this.$router.push('/vconsole')
     }
   }
 }
@@ -112,6 +119,10 @@ export default {
     }
     &.icon_nav_tabs {
         background: url("~@/assets/images/icons/icon_nav_tab.png") no-repeat;
+        background-size: 100% 100%;
+    }
+    &.icon_nav_vconsole {
+        background: url("~@/assets/images/icons/icon_nav_console.png") no-repeat;
         background-size: 100% 100%;
     }
 }

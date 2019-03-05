@@ -1,11 +1,12 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Index from '@/pages/marsdemo/views/index'
-import Toast from '@/pages/marsdemo/views/toast'
-import Loading from '@/pages/marsdemo/views/loading'
-import ProgressBar from '@/pages/marsdemo/views/progressbar'
-import Modal from '@/pages/marsdemo/views/modal'
-import Tabs from '@/pages/marsdemo/views/tabs'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Index from '@/pages/marsdemo/views/index';
+import Toast from '@/pages/marsdemo/views/toast';
+import Loading from '@/pages/marsdemo/views/loading';
+import ProgressBar from '@/pages/marsdemo/views/progressbar';
+import Modal from '@/pages/marsdemo/views/modal';
+import Tabs from '@/pages/marsdemo/views/tabs';
+import VConsole from '@/pages/marsdemo/views/vconsole';
 // import Header from '@/components/common/header'
 
 Vue.use(Router)
@@ -41,6 +42,11 @@ export default new Router({
       path: '/tabs',
       name: 'Tabs',
       component: Tabs
+    },
+    {
+      path: '/vconsole',
+      name: 'VConsole',
+      component: VConsole
     }
   ]
 })

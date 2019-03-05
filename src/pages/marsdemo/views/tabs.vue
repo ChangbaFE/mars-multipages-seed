@@ -11,6 +11,11 @@
         <p>Content Tab3</p>
       </mars-tab-pane>
     </mars-tabs>
+    <div class="btn-group">
+      <button class="btn btn-primary" @click="goIndex">
+        Back
+      </button>
+    </div>
   </div>
 </template>
 
@@ -29,16 +34,21 @@ export default {
   created() {
   },
   methods: {
+    goIndex: function() {
+      this.$router.push('/');
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
 @import "~@/assets/sass/base/mixins";
+@import "~@/assets/sass/base/weui_button";
 
 .container {
   display: flex;
   width: 100%;
   padding: 20px;
+  flex-direction: column;
 }
 
 </style>

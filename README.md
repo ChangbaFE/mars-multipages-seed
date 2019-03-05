@@ -11,19 +11,19 @@
 
 ## Functions && Components
 
-本项目是一个基于vue-cli和webpack搭建的移动端H5独立活动的脚手架，特点如下：
+本项目是一个基于vue-cli和webpack搭建的移动端H5多页应用的脚手架，特点如下：
 
-* [x] 适合多页应用，每个活动单独打包
-* [x] 生产环境css提取为单独文件 静态资源文件压缩
-* [x] 支持sass预处理器
+* [x] 适合多页应用，每个应用单独进行SPA，每个应用单独打包
+* [x] 生产环境css提取为单独文件，静态资源文件压缩
+* [x] 支持sass等预处理器
 * [x] 开发环境热重载
-* [x] 移动端px2rem插件，px转rem
-* [x] vue-router支持简单路由配置
+* [x] 支持移动端px2rem-loader，px转rem自适配
+* [x] 每个应用支持vue-router简单路由配置
 * [x] babel使用transform-runtime代替polyfill，按需加载使用到的babel特性大大减少打包文件体积
 * [x] 预置常用babel插件
 * [x] 基于WeUI的公共插件toast、loading、modal模态框等，可手动修改和配置
 * [x] 封装的axios方法处理网络请求
-* [x] 基于模板文件，快速create新移动端H5独立活动的模板文件
+* [x] 基于模板文件，快速创建create新的独立应用的文件
 * [x] gulp相关进行静态资源上传cdn等处理
 * [x] 内置组件与插件Demo页面
 
