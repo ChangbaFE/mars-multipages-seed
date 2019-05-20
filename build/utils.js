@@ -26,6 +26,7 @@ exports.assetsPath = function (_path) {
   return path.posix.join(assetsSubDirectory, _path)
 }
 
+// 处理各种类型的样式文件
 exports.cssLoaders = function (options) {
   options = options || {}
 
@@ -46,7 +47,7 @@ exports.cssLoaders = function (options) {
   const px2remLoader = {
     loader: 'px2rem-loader',
     options: {
-      remUnit: 75
+      remUnit: 75 // rem按75计算
     }
   }
 
@@ -59,6 +60,7 @@ exports.cssLoaders = function (options) {
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
+        // 将loaderOptions和sourceMap组成对象
         options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
         })
@@ -68,10 +70,11 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
+      // 分离js中引入的css文件
       return ExtractTextPlugin.extract({
         use: loaders,
         publicPath:'../../',
-        fallback: 'vue-style-loader'
+        fallback: 'vue-style-loader' // 没有被提取分离时使用的loader
       })
     } else {
       return ['vue-style-loader'].concat(loaders)
@@ -79,6 +82,7 @@ exports.cssLoaders = function (options) {
   }
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
+  //返回css类型对应的loader组成的对象 generateLoaders()来生成loader
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
@@ -92,14 +96,15 @@ exports.cssLoaders = function (options) {
 
 // Generate loaders for standalone style files (outside of .vue)
 exports.styleLoaders = function (options) {
+  // 定义返回的数组，数组中保存的是针对各类型的样式文件的处理方式
   const output = []
-  const loaders = exports.cssLoaders(options)
+  const loaders = exports.cssLoaders(options) // 调用cssLoaders方法返回各类型的样式对象(css: loader)
 
-  for (const extension in loaders) {
-    const loader = loaders[extension]
+  for (const extension in loaders) { // 遍历loaders
+    const loader = loaders[extension] //根据遍历获得的key(extension)来得到value(loader)
     output.push({
-      test: new RegExp('\\.' + extension + '$'),
-      use: loader
+      test: new RegExp('\\.' + extension + '$'), // 处理文件
+      use: loader // 用loader来处理，loader来自loaders[extension]
     })
   }
 

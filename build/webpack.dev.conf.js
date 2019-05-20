@@ -20,8 +20,10 @@ const assetsPluginInstance = new AssetsPlugin({
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+// 合并基本config
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
+    // 通过传入一些配置来获取rules配置，此处传入了sourceMap: false,表示不生成sourceMap
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
   },
   // cheap-module-eval-source-map is faster for development
@@ -54,14 +56,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     disableHostCheck: true
 
   },
+  // 插件配置
   plugins: [
+    // 编译时配置全局变量
     new webpack.DefinePlugin({
-      'process.env': require('../config/dev.env')
+      'process.env': require('../config/dev.env') // 当前环境为开发环境
     }),
-    new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(), // 热更新插件
     new webpack.NamedModulesPlugin(), // HMR shows correct file names in console on update.
-    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(), // 不触发错误,即编译后运行的包正常运行
     // https://github.com/ampedandwired/html-webpack-plugin
+    // 自动生成html文件,比如编译后文件的引入
     // new HtmlWebpackPlugin({
     //   filename: 'index.html',
     //   template: 'index.html',
@@ -75,8 +80,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         to: config.dev.assetsSubDirectory,
         ignore: ['.*']
       }
-    ]),
-    // add .concat(utils.htmlPlugin())
+    ])
   ].concat(utils.htmlPlugin())
 })
 

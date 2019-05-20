@@ -1,15 +1,15 @@
 'use strict'
 require('./check-versions')()
 
-process.env.NODE_ENV = 'production'
+process.env.NODE_ENV = 'production' // env prod
 
-const ora = require('ora')
-const rm = require('rimraf')
-const path = require('path')
-const chalk = require('chalk')
+const ora = require('ora') // 终端显示的转轮loading
+const rm = require('rimraf') // node环境下rm -rf的命令库
+const path = require('path') // node文件路径处理
+const chalk = require('chalk') // 粉笔 终端显示字体
 const webpack = require('webpack')
 const config = require('../config')
-const webpackConfig = require('./webpack.prod.conf')
+const webpackConfig = require('./webpack.prod.conf') // 生产环境下的webpack配置
 const utils = require('./utils')
 const term = require( 'terminal-kit' ).terminal
 
@@ -55,12 +55,15 @@ utils.showMars()
 const spinner = ora('Mars ==== building for production ...')
 spinner.start()
 
+// 删除已编译文件
 rm(path.join(config.build.assetsRoot, buildingPage, config.build.assetsSubDirectory), err => {
   if (err) throw err
+  // 在删除完成的回调函数中开始编译
   webpack(webpackConfig, (err, stats) => {
     spinner.stop()
     spinner.succeed()
     if (err) throw err
+    // 在编译完成的回调函数中,在终端输出编译的文件
     process.stdout.write(stats.toString({
       colors: true,
       modules: false,
