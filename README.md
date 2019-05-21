@@ -155,6 +155,6 @@ npm run build --report
 ### MarsDemo Tabs
 
 ![marsdemo](./demo/assets/tabs.gif)
-等等
 
-后期组件和功能还会根据业务需求进行增加和逐步完善。
+
+等等，后期组件和功能还会根据业务需求进行增加和逐步完善。
