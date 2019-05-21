@@ -136,7 +136,22 @@ npm run build --report
 
 ## Demo 
 
-启动项目，可进入marsdemo项目查看支持的公共组件和插件。
+启动项目，可进入marsdemo项目查看支持的公共组件和插件，目前有基于WeUI编写的公共插件toast、loading、modal模态框等
 
+已marsdemo举例：
 
+### Build
 
+![marsdemo](./demo/assets/build.jpg)
+
+### MarsDemo Init
+
+![marsdemo](./demo/assets/demo-1.jpg)
+
+### MarsDemo Loading
+
+![marsdemo](./demo/assets/loading.gif)
+
+等等
+
+后期组件和功能还会根据业务需求进行增加和逐步完善。
