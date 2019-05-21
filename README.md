@@ -1,11 +1,11 @@
-# Vue-Multipages-Base
+# Vue-Multipages-Seed
 
 > A Multi-Page Vue.js project for Mobile App
 
 ## Description
 
 * __描述：基于Vue的移动端多页应用开发脚手架__
-* __公司项目提炼，已做脱敏处理，欢迎下载唱吧App及火星直播App__
+* __公司项目提炼，已做脱敏处理，欢迎下载[唱吧App](https://changba.com/)及[火星直播App](https://mars.changba.com/)__
 * __环境搭建：vue-cli + webpack + gulp + axios + sass__
 
 ![](./demo/assets/logo.png) ![](./demo/assets/vs.png) ![](./demo/assets/logo_mars.png)
