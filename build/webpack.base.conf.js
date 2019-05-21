@@ -24,7 +24,7 @@ module.exports = {
   },
   // 文件解析
   resolve: {
-    extensions: ['.js', '.vue', '.json'], // 自动解析确定的扩展名，使得导入模块时不带扩展名
+    extensions: ['.js', '.vue', '.json', '.ts'], // 自动解析确定的扩展名，使得导入模块时不带扩展名
     // 创建import或require别名
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
@@ -71,6 +71,21 @@ module.exports = {
       {
         test: /\.(sass|scss)$/, // sass/scss 后缀
         loaders: ['style', 'css', 'sass'] // 处理sass的loader
+      },
+      // ts 支持
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        enforce: 'pre',
+        loader: 'tslint-loader'
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader', // typescript支持
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       }
     ]
   },

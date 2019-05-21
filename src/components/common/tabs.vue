@@ -55,7 +55,7 @@ export default {
     },
 
     getPanes() {
-      console.log(this.$slots.default);
+      // console.log(this.$slots.default);
       if (this.$slots.default) {
         const paneSlots = this.$slots.default.filter(vnode => vnode.tag &&
           vnode.componentOptions && vnode.componentOptions.Ctor.options.name === 'MarsTabPane');

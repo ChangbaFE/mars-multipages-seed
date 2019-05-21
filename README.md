@@ -8,6 +8,8 @@
 * __公司项目提炼，已做脱敏处理，欢迎下载唱吧App及火星直播App__
 * __环境搭建：vue-cli + webpack + gulp + axios + sass__
 
+![](./demo/assets/logo.png) ![](./demo/assets/vs.png) ![](./demo/assets/logo_mars.png)
+
 
 ## Functions && Components
 
@@ -131,4 +133,10 @@ npm run build `your project`
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
+
+## Demo 
+
+启动项目，可进入marsdemo项目查看支持的公共组件和插件。
+
+
 
