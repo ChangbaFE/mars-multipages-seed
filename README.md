@@ -26,8 +26,9 @@
 * [x] 基于WeUI的公共插件toast、loading、modal模态框等，可手动修改和配置
 * [x] 封装的axios方法处理网络请求
 * [x] 基于模板文件，快速创建create新的独立应用的文件
-* [x] gulp相关进行静态资源上传cdn等处理
+* [x] gulp相关进行静态资源上传cdn等处理 （暂未提供）
 * [x] 内置组件与插件Demo页面
+* [x] 集成vConsole等内部dev调试工具
 
 
 ## Structure
