@@ -1,6 +1,6 @@
-# Vue-Multipages-Seed
+# Mars-Multipages-Seed
 
-> A Multi-Page Vue.js project for Mobile App
+> 🚀🚀🚀火星app移动端多页应用框架 A multipages, mobile supported Vue.js skeleton for Mas App
 
 ## Description
 
@@ -37,8 +37,8 @@
 ├─node_modules # 利用npm管理的所有包及其依赖
 ├─.babelrc # babel的配置文件
 ├─.postcssrc.js # postcss的配置文件
-├─build.sh # 发布机上编译脚本
-├─gulpfile.js # gulp脚本，处理cdn上传、静态资源替换等
+├─build.sh # 发布机上编译脚本  （暂未提供）
+├─gulpfile.js # gulp脚本，处理cdn上传、静态资源替换等 （暂未提供）
 ├─package.json # npm的配置文件
 ├─config # 存放分拆后的webpack配置文件
 │   ├─dev.env.js # 开发环境配置
